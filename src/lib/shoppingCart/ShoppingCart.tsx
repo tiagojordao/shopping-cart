@@ -47,8 +47,10 @@ export default function ShoppingCart({setItemAmount}: Props) {
 
     const [items, setItems] = useState<Item[]>(initialItems);
 
-    const handleDeleteItem = (key: number) => {
-        setItems(items.splice(key, 1));
+    const handleDeleteItem = (index: number) => {
+        setItems(i => {
+            return i.filter((value, i) => i !== index)
+          })
     };
 
     useEffect(() => {
