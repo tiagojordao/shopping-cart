@@ -1,0 +1,40 @@
+.cartTitle {
+    margin-top: 32px;
+}
+
+.shoppingCart__content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+    margin-top: 16px;
+    gap: 8px;
+}
+
+.shoppingCart__items {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+
+    gap: 8px;
+}
+
+aside.shoppingCart__closeOrder {
+    max-width: 350px;
+    height: 330px;
+}
+
+@media screen and (width <= 430px) {
+    .shoppingCart__content {
+        padding: 0 8px;
+
+        flex-direction: column;
+        align-items: center;
+    }
+
+    aside.shoppingCart__closeOrder {
+        max-width: 100%;
+    }
+}

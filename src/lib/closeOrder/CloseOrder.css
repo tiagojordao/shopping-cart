@@ -1,0 +1,156 @@
+.shoppingCart__closeOrder {
+    width: 100%;
+
+    background-color: #565abb;
+    border-radius: 20px;
+
+    padding: 32px 16px;
+}
+
+.closeOrder__title {
+    border-bottom: 1px solid #fff;
+    margin-bottom: 8px;
+}
+
+.closeOrder__address {
+    margin-bottom: 8px;
+}
+
+.closeOrder__postalCodeField {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.postalCodeField__leftSide {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+}
+
+.closeOrder__postalCode {
+    margin-right: 4px;
+}
+
+#CEP {
+    background-color: #6268c6;
+    padding: 6px 8px;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 3px;
+    color: #fff;
+}
+
+#CEP:focus {
+    outline: none;
+}
+
+.closeOrder__updateCode {
+    background-color: #45e6bb;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.closeOrder__updateCode:hover {
+    background-color: #30a485;
+}
+
+.closeOrder__city {
+    font-size: .8em;
+}
+
+.closeOrder__items {
+    display: inline-block;
+    border-top: 1px solid #fff;
+    margin-top: 16px;
+
+    width: 100%;
+}
+
+.closeOrder__amountItems {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.closeOrder__totalShippingPrice {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.closeOrderTotal {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    border-top: 1px solid #fff;
+    padding-top: 16px;
+}
+
+.closeOrder__button {
+    position: relative;
+    display: block;
+    cursor: pointer;
+
+    margin-top: 16px;
+    padding: 8px 16px;
+
+    border: 1px solid #fff;
+
+    z-index: 1;
+    background-color: transparent;
+    color: #fff;
+}
+
+.closeOrder__button:hover {
+    background-color: transparent;
+}
+
+.closeOrder__button::before {
+    content: "";
+    position: absolute;
+    
+    width: 100%;
+    height: 0;
+
+    background-color: #46e6bb;
+    bottom: 0;
+    left: 0;
+
+    z-index: -1;
+    transition: all 0.3s ease;
+}
+
+.closeOrder__button:hover::before {
+    top: 0;
+    bottom: auto;
+    height: 100%;
+}
+
+
+.closeOrder__inputCode::placeholder {
+    color: rgba(255,255,255,.5);
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

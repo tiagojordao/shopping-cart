@@ -1,0 +1,39 @@
+nav.navbar {
+    width: 100%;
+    background-color: #eee;
+    color: #333;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 64px;
+}
+
+.navbar__name {
+    font-weight: bold;
+}
+
+.navbar__icon {
+    position: relative;
+}
+
+.navbar__icon__counter {
+    background-color: red;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+
+    font-size: 12px;
+
+    position: absolute;
+    right: -10px;
+    top: -10px;
+}
+

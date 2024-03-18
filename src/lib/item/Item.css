@@ -1,0 +1,40 @@
+.item {
+    width: 100%;
+    
+    background-color: #fff;
+    color: #333;
+
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 16px;
+}
+
+.item__button {
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    padding: 4px;
+    transition: .2s;
+}
+
+.item__button:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.item__amount {
+    display: flex;
+    align-items: center;
+}
+
+.item__amount__number {
+    margin: 0 8px;
+    background-color: rgba(0,0,0,.1);
+    padding: 8px 8px;
+    border-radius: 4px;
+}
