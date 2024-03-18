@@ -47,11 +47,19 @@ export default function ShoppingCart({setItemAmount}: Props) {
 
     const [items, setItems] = useState<Item[]>(initialItems);
 
-    const handleDeleteItem = (index: number) => {
-        setItems(i => {
-            return i.filter((value, i) => i !== index)
-          })
+    const handleDeleteItem = (indexToDelete: number) => {
+        setItems(arrayItems => {
+            return arrayItems.filter((_value: Item, index: number) => index !== indexToDelete)
+        })
     };
+
+    const getTotalItemsAmount = (): number => {
+        let total: number = 0;
+        items.forEach(i => {
+            total += (i.price * i.amount);
+        })
+        return total;
+    }
 
     useEffect(() => {
         setItemAmount(items.length);
@@ -82,6 +90,7 @@ export default function ShoppingCart({setItemAmount}: Props) {
                 </section>
                 <CloseOrder 
                     amount = {items.length}
+                    totalItems = {getTotalItemsAmount()}
                 />
             </div>
         </main>

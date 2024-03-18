@@ -5,14 +5,19 @@ import { useState } from 'react';
 import ReplayOutlinedIcon from '@mui/icons-material/ReplayOutlined';
 
 interface Props {
-    amount: number
+    amount: number,
+    totalItems: number
 }
 
 export default function CloseOrder(props: Props) {
 
-    const [ship, ] = useState<number>(5.20);
+    const [ship, ] = useState<number>(9.99);
 
     const shipConverted = ship.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+
+    const convertedPrice = props.totalItems.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
+    const convertTotal = ship + props.totalItems;
+    const convertedTotal = convertTotal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
 
     return (
         <aside className="shoppingCart__closeOrder">
@@ -40,7 +45,7 @@ export default function CloseOrder(props: Props) {
             <span className="closeOrder__items">
                 <span className="closeOrder__amountItems">
                     <p>Itens ({props.amount})</p>
-                    <p>1835</p>
+                    <p>{convertedPrice}</p>
                 </span>
                 <span className="closeOrder__totalShippingPrice">
                     <p className='closeOrder__shipping'>Frete</p>
@@ -49,7 +54,7 @@ export default function CloseOrder(props: Props) {
             </span>
             <span className="closeOrderTotal">
                 <p>Total</p>
-                <p>135</p>
+                <p>{convertedTotal}</p>
             </span>
             <button className="closeOrder__button">
                 FECHAR PEDIDO
