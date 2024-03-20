@@ -4,7 +4,7 @@ import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOu
 import RemoveCircleOutlineOutlinedIcon from '@mui/icons-material/RemoveCircleOutlineOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Item {
     id: number,
@@ -12,22 +12,17 @@ interface Item {
     description: string,
     price: number,
     amount: number,
-    deleteItem: (key: number) => void
+    deleteItem: (key: number) => void,
+    updateItem: (index: number, newAmount: number) => void
 }
 
 export default function Item(props: Item) {
 
     const [amount, setAmount] = useState<number>(1);
 
-    const handleAmountAdd = () => {
-        setAmount (amount + 1);
-    }
-
-    const handleAmountMinus = () => {
-        if(amount > 1){
-            setAmount (amount - 1);
-        }
-    }
+    useEffect(() => {
+        props.updateItem(props.id, amount);
+    },[amount])
 
     const originalPrice = props.price.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'});
     const priceTimesAmount = amount * props.price;
@@ -49,7 +44,7 @@ export default function Item(props: Item) {
             </span>
 
             <span className="item__amount">
-                <button className='item__button item__minus' onClick={handleAmountMinus}>
+                <button className='item__button item__minus' onClick={() => {if(amount > 1) { setAmount(amount - 1)}}}>
                     <RemoveCircleOutlineOutlinedIcon 
                         color='warning'
                     />
@@ -57,7 +52,7 @@ export default function Item(props: Item) {
                 <p className="item__amount__number">
                     {amount}
                 </p>
-                <button className="item__button item__add" onClick={handleAmountAdd}>
+                <button className="item__button item__add" onClick={() => setAmount(amount + 1)}>
                     <AddCircleOutlineOutlinedIcon
                         color='success'
                     />

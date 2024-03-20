@@ -61,6 +61,12 @@ export default function ShoppingCart({setItemAmount}: Props) {
         return total;
     }
 
+    const handleItems = (index: number, newAmount: number) => {
+        const state = [...items];
+        state[index].amount = newAmount;
+        setItems(state);
+    };
+
     useEffect(() => {
         setItemAmount(items.length);
     },[items.length, setItemAmount]);
@@ -85,6 +91,7 @@ export default function ShoppingCart({setItemAmount}: Props) {
                                     price = {item.price}
                                     amount = {item.amount}
                                     deleteItem = {handleDeleteItem}
+                                    updateItem = {handleItems}
                                 />
                     })}
                 </section>
